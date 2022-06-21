@@ -1,3 +1,5 @@
+import 'package:animated_widgets/widgets/rotation_animated.dart';
+import 'package:animated_widgets/widgets/shake_animated_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
@@ -247,109 +249,190 @@ class MasterPage extends StatelessWidget {
               actions: [
                 Container(
                   padding: EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: [
-                            Icon(Icons.bug_report, color: Colors.black),
-                            Text("REPORTAR BUG",
-                                style: TextStyle(color: Colors.black)),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Stack(children: [
-                          IconButton(
-                            iconSize: 30,
+                  child: IntrinsicHeight(
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: IconButton(
+                            iconSize: 20,
                             splashColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             padding: EdgeInsets.zero,
                             constraints: BoxConstraints(),
-                            icon: Icon(
-                              Icons.email,
-                              color: Colors.black,
-                            ),
+                            icon: Icon(FontAwesomeIcons.solidMessage,
+                                color: Color(0xFFa8a8a8)),
                             onPressed: () {},
                           ),
-                          Positioned(
-                            top: 1,
-                            right: 13,
-                            child: Container(
-                              padding: EdgeInsets.all(1),
-                              decoration: BoxDecoration(
-                                color: Colors.red,
-                                borderRadius: BorderRadius.circular(6),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: SizedBox(
+                            width: 25,
+                            child: FloatingActionButton(
+                              backgroundColor: Color(0xFFe1524d),
+                              child: Icon(
+                                Icons.question_mark_rounded,
+                                size: 15,
                               ),
-                              constraints: BoxConstraints(
-                                minWidth: 17,
-                                minHeight: 10,
-                              ),
-                              child: Text(
-                                '0',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 11,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
+                              onPressed: () {},
                             ),
-                          )
-                        ]),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Stack(children: [
-                          IconButton(
-                            iconSize: 30,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: IconButton(
+                            iconSize: 22,
                             splashColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             padding: EdgeInsets.zero,
                             constraints: BoxConstraints(),
-                            icon: Icon(
-                              Icons.house_siding_outlined,
-                              color: Colors.black,
-                            ),
+                            icon: Icon(FontAwesomeIcons.stopwatch,
+                                color: Color(0xFF88acc3)),
                             onPressed: () {},
                           ),
-                          Positioned(
-                            top: 1,
-                            right: 13,
-                            child: Container(
-                              padding: EdgeInsets.all(1),
-                              decoration: new BoxDecoration(
-                                color: Colors.red,
-                                borderRadius: BorderRadius.circular(6),
-                              ),
-                              constraints: BoxConstraints(
-                                minWidth: 17,
-                                minHeight: 10,
-                              ),
-                              child: Text(
-                                '0',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 11,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Stack(children: [
+                            ShakeAnimatedWidget(
+                              duration: Duration(milliseconds: 1500),
+                              shakeAngle: Rotation.deg(x: 30),
+                              curve: Curves.linear,
+                              child: IconButton(
+                                iconSize: 22,
+                                splashColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                padding: EdgeInsets.zero,
+                                constraints: BoxConstraints(),
+                                icon: Icon(
+                                  FontAwesomeIcons.cakeCandles,
+                                  color: Color(0xFFe7797b),
                                 ),
-                                textAlign: TextAlign.center,
+                                onPressed: () {},
                               ),
                             ),
-                          )
-                        ]),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: [
-                            Icon(Icons.home, color: Colors.black),
-                            Text("INÍCIO",
-                                style: TextStyle(color: Colors.black)),
-                          ],
+                            Positioned(
+                              top: -0.2,
+                              right: 0,
+                              child: Container(
+                                padding: EdgeInsets.all(1),
+                                decoration: new BoxDecoration(
+                                  color: Colors.purple,
+                                  borderRadius: BorderRadius.circular(6),
+                                ),
+                                constraints: BoxConstraints(
+                                  minWidth: 13,
+                                  minHeight: 0,
+                                ),
+                                child: Text(
+                                  '3',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 10,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            )
+                          ]),
                         ),
-                      ),
-                    ],
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Stack(children: [
+                            ShakeAnimatedWidget(
+                              duration: Duration(milliseconds: 1500),
+                              shakeAngle: Rotation.deg(z: 20),
+                              curve: Curves.linear,
+                              child: IconButton(
+                                iconSize: 22,
+                                splashColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                padding: EdgeInsets.zero,
+                                constraints: BoxConstraints(),
+                                icon: Icon(
+                                  FontAwesomeIcons.solidBell,
+                                  color: Color(0xFFffc30d),
+                                ),
+                                onPressed: () {},
+                              ),
+                            ),
+                            Positioned(
+                              top: -0.2,
+                              right: 0,
+                              child: Container(
+                                padding: EdgeInsets.all(1),
+                                decoration: new BoxDecoration(
+                                  color: Colors.purple,
+                                  borderRadius: BorderRadius.circular(6),
+                                ),
+                                constraints: BoxConstraints(
+                                  minWidth: 13,
+                                  minHeight: 0,
+                                ),
+                                child: Text(
+                                  '8',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 10,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            )
+                          ]),
+                        ),
+                        PopupMenuButton<AdminMenuItem>(
+                          child: Row(
+                            children: [
+                              CircleAvatar(
+                                backgroundColor: Colors.white,
+                                backgroundImage:
+                                    AssetImage('../images/perfil.png'),
+                                radius: 25,
+                              ),
+                              Text(
+                                "Tiago Moreira",
+                                style: const TextStyle(
+                                    fontSize: 14, color: Colors.black),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Icon(
+                                  FontAwesomeIcons.angleDown,
+                                  color: Colors.grey,
+                                  size: 13,
+                                ),
+                              )
+                            ],
+                          ),
+                          itemBuilder: (context) {
+                            return _adminMenuItems.map((AdminMenuItem item) {
+                              return PopupMenuItem<AdminMenuItem>(
+                                value: item,
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                      item.icon,
+                                      color: Color(0xFFe7797b),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 8.0),
+                                      child: Text(
+                                        item.title,
+                                        style: const TextStyle(
+                                          fontSize: 14,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            }).toList();
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -362,4 +445,22 @@ class MasterPage extends StatelessWidget {
       ],
     );
   }
+
+  final List<AdminMenuItem> _adminMenuItems = const [
+    AdminMenuItem(
+      title: 'Perfil',
+      icon: Icons.account_circle,
+      route: '/',
+    ),
+    AdminMenuItem(
+      title: 'Configurações',
+      icon: Icons.settings,
+      route: '/',
+    ),
+    AdminMenuItem(
+      title: 'Sair',
+      icon: Icons.logout,
+      route: '/',
+    ),
+  ];
 }

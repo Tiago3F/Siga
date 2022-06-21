@@ -35,6 +35,7 @@ dependencies:
   font_awesome_flutter: ^10.1.0
   google_fonts: ^2.1.0
   flutter_admin_scaffold: ^1.1.1
+  animated_widgets: ^1.1.0
   
  
 
