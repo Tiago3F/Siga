@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_admin_scaffold/admin_scaffold.dart';
 import 'package:get/route_manager.dart';
 import 'package:siga/modules/home/dashboard_screen.dart';
 import 'package:url_strategy/url_strategy.dart';
@@ -52,129 +53,170 @@ class MasterPage extends StatelessWidget {
           width: 265,
           // backgroundColor: AppColors.background,
           child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  const Color(0xFFa12421),
+                  const Color(0xFFf91919),
+                ],
+                begin: const FractionalOffset(0.0, 0.0),
+                end: const FractionalOffset(1.0, 0.0),
+                stops: [0.0, 1.0],
+                tileMode: TileMode.clamp,
+              ),
+            ),
             child: ListView(
               padding: EdgeInsets.zero,
               children: <Widget>[
-                Row(
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.all(20.0),
-                      child: CircleAvatar(
-                        radius: 22,
-                        backgroundImage: AssetImage("../images/perfil.jpeg"),
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        child: Image.asset('../images/logo.png',
+                            width: 30, height: 25),
                       ),
+                      Text(
+                        "SIGA",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w900,
+                            fontSize: 23),
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Text(
+                    'Menu',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w100,
+                        fontSize: 12),
+                  ),
+                ),
+                ExpansionTile(
+                  leading:
+                      Icon(Icons.edit_calendar_rounded, color: Colors.white),
+                  collapsedIconColor: Colors.white,
+                  iconColor: Colors.white,
+                  title: Text('Cadastros',
+                      style: TextStyle(
+                        height: 1,
+                        color: Colors.white,
+                      )),
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(" - Texto 1",
+                          style: TextStyle(
+                            color: Colors.white,
+                          )),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5),
-                      child: Column(children: [
-                        Text(
-                          'OSVALDO CRISPIM',
-                          style: TextStyles.input,
-                        ),
-                        Text(
-                          '(OSVALDO CRISPIM)',
-                          style: TextStyles.input,
-                        ),
-                      ]),
-                    )
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(" - Texto 2",
+                          style: TextStyle(
+                            color: Colors.white,
+                          )),
+                    ),
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text(
-                    'Pessoal',
-                    style: TextStyles.titleRegular,
-                  ),
-                ),
                 ListTile(
                   iconColor: Colors.white,
                   textColor: Colors.white,
-                  leading: const Icon(FontAwesomeIcons.solidCircleUser),
-                  title: const Text('Meu Perfil'),
-                  onTap: () {
-                    Get.toNamed('/home');
-                  },
+                  leading: const Icon(Icons.speed_outlined),
+                  title: const Text('Dashboard Usuário'),
+                  // onTap: () {
+                  //   Get.toNamed('/edit_perfil');
+                  // },
                 ),
-                ListTile(
+                ExpansionTile(
+                  leading: Icon(Icons.call, color: Colors.white),
+                  collapsedIconColor: Colors.white,
                   iconColor: Colors.white,
-                  textColor: Colors.white,
-                  leading: const Icon(FontAwesomeIcons.sitemap),
-                  title: const Text('Organograma'),
-                  onTap: () {
-                    Get.toNamed('/edit_perfil');
-                  },
+                  title: Text('Fila',
+                      style: TextStyle(
+                        height: 1,
+                        color: Colors.white,
+                      )),
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(" - Texto 1",
+                          style: TextStyle(
+                            color: Colors.white,
+                          )),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(" - Texto 2",
+                          style: TextStyle(
+                            color: Colors.white,
+                          )),
+                    ),
+                  ],
+                ),
+                ExpansionTile(
+                  leading: Icon(Icons.table_rows_outlined, color: Colors.white),
+                  collapsedIconColor: Colors.white,
+                  iconColor: Colors.white,
+                  title: Text('Mensagem URA',
+                      style: TextStyle(
+                        height: 1,
+                        color: Colors.white,
+                      )),
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(" - Texto 1",
+                          style: TextStyle(
+                            color: Colors.white,
+                          )),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(" - Texto 2",
+                          style: TextStyle(
+                            color: Colors.white,
+                          )),
+                    ),
+                  ],
                 ),
                 const ListTile(
                   iconColor: Colors.white,
                   textColor: Colors.white,
-                  leading: Icon(FontAwesomeIcons.squarePlus),
-                  title: Text('Formar Organograma'),
+                  leading: Icon(Icons.warning_amber),
+                  title: Text('Painel de Informações'),
                 ),
-                const ListTile(
+                ExpansionTile(
+                  leading:
+                      Icon(FontAwesomeIcons.fileLines, color: Colors.white),
+                  collapsedIconColor: Colors.white,
                   iconColor: Colors.white,
-                  textColor: Colors.white,
-                  leading: Icon(FontAwesomeIcons.solidCircleUser),
-                  title: Text('HomeOffice/Covid'),
-                ),
-                const ListTile(
-                  iconColor: Colors.white,
-                  textColor: Colors.white,
-                  leading: Icon(FontAwesomeIcons.users),
-                  title: Text('Meus Subordinados'),
-                ),
-                const ListTile(
-                  iconColor: Colors.white,
-                  textColor: Colors.white,
-                  leading: Icon(FontAwesomeIcons.fileLines),
-                  title: Text('Minhas Ocorrências'),
-                ),
-                const ListTile(
-                  iconColor: Colors.white,
-                  textColor: Colors.white,
-                  leading: Icon(FontAwesomeIcons.solidEnvelope),
-                  title: Text('Mensagens'),
-                ),
-                /* const Divider(
-                  height: 1,
-                  thickness: 1,
-                ), */
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text(
-                    'Relatórios',
-                    style: TextStyles.titleRegular,
-                  ),
-                ),
-                const ListTile(
-                  iconColor: Colors.white,
-                  textColor: Colors.white,
-                  leading: Icon(FontAwesomeIcons.userLock),
-                  title: Text('Controle do Efetivo'),
-                ),
-                const ListTile(
-                  iconColor: Colors.white,
-                  textColor: Colors.white,
-                  leading: Icon(FontAwesomeIcons.solidMap),
-                  title: Text('Mapa de Vagas'),
-                ),
-                const ListTile(
-                  iconColor: Colors.white,
-                  textColor: Colors.white,
-                  leading: Icon(FontAwesomeIcons.fileLines),
-                  title: Text('Relatiorios e consultas'),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text(
-                    'Gestao de pessoas',
-                    style: TextStyles.titleRegular,
-                  ),
-                ),
-                const ListTile(
-                  iconColor: Colors.white,
-                  textColor: Colors.white,
-                  leading: Icon(FontAwesomeIcons.fileContract),
-                  title: Text('Feedback orientado de valor'),
+                  title: Text('Relatórios',
+                      style: TextStyle(
+                        height: 1,
+                        color: Colors.white,
+                      )),
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(" - Texto 1",
+                          style: TextStyle(
+                            color: Colors.white,
+                          )),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(" - Texto 2",
+                          style: TextStyle(
+                            color: Colors.white,
+                          )),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -188,22 +230,25 @@ class MasterPage extends StatelessWidget {
           // flex: 6, child: Container(color: Colors.white, child: InnerView)
           child: Scaffold(
             appBar: AppBar(
-              title: Column(
-                children: [],
+              leading: Builder(
+                builder: (BuildContext context) {
+                  return IconButton(
+                    icon: const Icon(
+                      Icons.menu,
+                      color: Colors.black,
+                    ),
+                    onPressed: () {
+                      Scaffold.of(context).openDrawer();
+                    },
+                    tooltip: "Menu",
+                  );
+                },
               ),
               actions: [
                 Container(
                   padding: EdgeInsets.all(8.0),
                   child: Row(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text("HOMEOFFICE/COVID-19",
-                            style: TextStyle(
-                                color: Colors.orange,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 18)),
-                      ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
