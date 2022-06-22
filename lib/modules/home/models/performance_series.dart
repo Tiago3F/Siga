@@ -18,29 +18,9 @@
 import 'package:flutter/painting.dart';
 import 'package:flutter/src/material/colors.dart';
 
-class LinearSales {
-  final int year;
-  final int sales;
-
-  LinearSales(this.year, this.sales);
-}
-
-class ChartData {
-  ChartData(this.x, this.y);
-  final String x;
-  final double y;
-}
-
 class GDPData {
-  GDPData(this.continent, this.gdp, this.color);
-  final String continent;
-  final int gdp;
+  GDPData(this.items, this.valor, this.color);
+  final String items;
+  final int valor;
   final Color color;
-}
-
-class PieData {
- PieData(this.xData, this.yData, this.text, );
- final String xData;
- final num yData;
- final String text;
 }

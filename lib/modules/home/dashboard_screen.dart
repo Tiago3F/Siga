@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:siga/modules/home/card_perfil.dart';
-import 'package:siga/modules/home/performance_grafic_panel.dart';
+import 'package:siga/modules/home/performance_grafic_radial.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -28,10 +28,10 @@ class _DashboardState extends State<Dashboard> {
                       child: Row(
                         children: <Widget>[
                           Flexible(
-                            flex: 3,
+                            flex: 4,
                             fit: FlexFit.tight,
                             child: Container(
-                              child: PerformanceGraficPanel(),
+                              child: CardPerfil(),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -41,12 +41,14 @@ class _DashboardState extends State<Dashboard> {
                             width: 20,
                           ),
                           Flexible(
-                            flex: 1,
+                            flex: 3,
                             fit: FlexFit.tight,
                             child: Container(
-                              margin: EdgeInsets.only(bottom: constraints.maxHeight - 440),
-                              child: CardPerfil(),
-                             
+                              // decoration: BoxDecoration(
+                              //     border: Border.all(color: Colors.grey)),
+                              margin: EdgeInsets.only(
+                                  bottom: constraints.maxHeight - 530),
+                              child: PerformanceGraficPanel(),
                             ),
                           )
                         ],
@@ -67,18 +69,18 @@ class _DashboardState extends State<Dashboard> {
               Padding(
                 padding: const EdgeInsets.all(10),
                 child: Container(
-                  height: 300,
+                  height: 500,
                   child: Center(child: PerformanceGraficPanel()),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(10),
-                child: Container(
-                  height: constraints.maxHeight - 400,
-                  width: constraints.maxWidth - 0,
-                  child: Center(child: CardPerfil()),
-                ),
-              )
+              // Padding(
+              //   padding: const EdgeInsets.all(10),
+              //   child: Container(
+              //     height: constraints.maxHeight - 400,
+              //     width: constraints.maxWidth - 0,
+              //     child: Center(child: CardPerfil()),
+              //   ),
+              // )
             ],
           );
         }));
