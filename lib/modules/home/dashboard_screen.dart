@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:siga/modules/home/card_perfil.dart';
-import 'package:siga/modules/home/expansion_panel_perfil.dart';
+import 'package:siga/modules/home/performance_grafic_panel.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -31,7 +31,7 @@ class _DashboardState extends State<Dashboard> {
                             flex: 3,
                             fit: FlexFit.tight,
                             child: Container(
-                              child: ExpansionPanelPerfil(),
+                              child: PerformanceGraficPanel(),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -68,7 +68,7 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.all(10),
                 child: Container(
                   height: 300,
-                  child: Center(child: ExpansionPanelPerfil()),
+                  child: Center(child: PerformanceGraficPanel()),
                 ),
               ),
               Padding(

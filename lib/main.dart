@@ -8,7 +8,6 @@ import 'package:siga/modules/home/dashboard_screen.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:siga/shared/themes/app_text_styles.dart';
-
 import 'shared/themes/app_colors.dart';
 
 void main() {
@@ -47,12 +46,15 @@ class MasterPage extends StatelessWidget {
     InnerView = InnterRoutes[Get.parameters[
         'page_name']]!; // Já aqui eu permitir que a variável fosse iniciada como null, "pelo menos é o que eu acho que fiz!"
   }
+
+  final GlobalKey<ScaffoldState> _key = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return Row(
+      key: _key,
       children: [
         Drawer(
-          width: 265,
           // backgroundColor: AppColors.background,
           child: Container(
             decoration: BoxDecoration(
@@ -240,7 +242,7 @@ class MasterPage extends StatelessWidget {
                       color: Colors.black,
                     ),
                     onPressed: () {
-                      Scaffold.of(context).openDrawer();
+                       onPressed: () => _key.currentState!.openDrawer();
                     },
                     tooltip: "Menu",
                   );
