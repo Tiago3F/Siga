@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:siga/modules/home/card_perfil.dart';
-import 'package:siga/modules/home/performance_grafic_radial.dart';
+import 'package:siga/modules/home/stacked_area_line.dart';
+import 'package:siga/modules/home/radial.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -31,7 +31,7 @@ class _DashboardState extends State<Dashboard> {
                             flex: 4,
                             fit: FlexFit.tight,
                             child: Container(
-                              child: CardPerfil(),
+                              child: PerformanceGraficLinePanel(),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                               ),
