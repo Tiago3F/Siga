@@ -4,7 +4,6 @@ import 'dart:ui';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:rounded_background_text/rounded_background_text.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 import 'models/performance_series.dart';
@@ -98,7 +97,7 @@ class _StackedAreaCustomColorLineChartState
                         children: [
                           Text(
                             "188 / 2.040",
-                            style: TextStyle(fontWeight: FontWeight.w600),
+                            style: TextStyle(fontWeight: FontWeight.w900),
                           ),
                           Text("Pontos"),
                         ],
@@ -124,7 +123,7 @@ class _StackedAreaCustomColorLineChartState
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text("1.852",
-                              style: TextStyle(fontWeight: FontWeight.w600)),
+                              style: TextStyle(fontWeight: FontWeight.w900)),
                           Text("Faltantes"),
                         ],
                       ),
@@ -139,8 +138,6 @@ class _StackedAreaCustomColorLineChartState
               ),
               Expanded(
                 child: Container(
-                  height: 50,
-                  width: 50,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -148,10 +145,23 @@ class _StackedAreaCustomColorLineChartState
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          RoundedBackgroundText(
-                            'Nível 0 - 9,22%',
-                            style: TextStyle(fontWeight: FontWeight.w400),
-                            backgroundColor: Colors.blue,
+                          Container(
+                            width: 150,
+                            margin: EdgeInsets.all(5),
+                            padding: EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                              color: Color(0xFFfbd1cd),
+                              borderRadius: BorderRadius.circular(500),
+                            ),
+                            child: Text(
+                              textAlign: TextAlign.center,
+                              'Nível 0 - 9,22%',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w700,
+                                color: Color(0xFFea5c43),
+                              ),
+                            ),
                           ),
                           Text("Nível"),
                         ],
