@@ -1,90 +1,94 @@
 import 'package:flutter/material.dart';
-import 'package:charts_flutter/flutter.dart' as charts;
-import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
-class StackedAreaLineChart extends StatelessWidget {
-  final List<charts.Series<dynamic, int>> seriesList;
-  final bool animate;
+import 'models/performance_series.dart';
 
-  StackedAreaLineChart(this.seriesList, {required this.animate});
+class _MyHomePage extends StatefulWidget {
+  // ignore: prefer_const_constructors_in_immutables
+  _MyHomePage({Key? key}) : super(key: key);
 
-  /// Creates a [LineChart] with sample data and no transition.
-  factory StackedAreaLineChart.withSampleData() {
-    return StackedAreaLineChart(
-      _createSampleData(),
-      // Disable animations for image tests.
-      animate: false,
-    );
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<_MyHomePage> {
+  late List<ChartData> _chartData;
+  late TooltipBehavior _tooltipBehavior;
+
+  @override
+  void initState() {
+    _chartData = getChartData();
+    _tooltipBehavior = TooltipBehavior(enable: true);
+    super.initState();
+  }
+
+  // @override
+  // void initState() {
+  //   data = [
+  //     ChartData('CHN', 12),
+  //     ChartData('GER', 15),
+  //     ChartData('RUS', -30),
+  //     ChartData('BRZ', 6.4),
+  //     ChartData('IND', 14)
+  //   ];
+  //   _tooltip = TooltipBehavior(enable: true);
+  //   super.initState();
+  // }
+
+  // Itens do gráfico
+  List<ChartData> getChartData() {
+    final List<ChartData> chartData = [
+      ChartData('08:04:13', 45, Color(0xFF0386c6)),
+      ChartData('08:12:20', -10, Color(0xFF0386c6)),
+      ChartData('08:13:20', -10, Color(0xFF0386c6)),
+      ChartData('08:14:20', -10, Color(0xFF0386c6)),
+      ChartData('08:15:20', -10, Color(0xFF0386c6)),
+      ChartData('08:17:20', -10, Color(0xFF0386c6)),
+      ChartData('08:19:20', -10, Color(0xFF0386c6)),
+      ChartData('08:11:20', -10, Color(0xFF0386c6)),
+      ChartData('08:11:20', -10, Color(0xFF0386c6)),
+      ChartData('Rechamada', 22, Color(0xFFf91919)),
+      ChartData('Satisfação no Atendimento', -90, Color(0xFF359928)),
+      ChartData('Índice de Resolução', 74, Color(0xFFf3c056)),
+      ChartData('Pontuação', 61, Color(0xFFb130c8)),
+      ChartData('Monitoria de Qualidade', 99, Color(0xFF20eeff)),
+    ];
+    return chartData;
   }
 
   @override
   Widget build(BuildContext context) {
-    return charts.LineChart(seriesList,
-        defaultRenderer: charts.LineRendererConfig(
-            includeArea: true,
-            stacked: true,
-            roundEndCaps: true,
-            includeLine: true),
-        animate: animate);
-  }
-
-  /// Create one series with sample hard coded data.
-  static List<charts.Series<LinearSales, int>> _createSampleData() {
-    final myFakeDesktopData = [
-      LinearSales(0, 5, "teste"),
-      LinearSales(1, 25, "teste"),
-      LinearSales(2, 100, "teste"),
-      LinearSales(3, 75, "teste"),
-    ];
-
-    var myFakeTabletData = [
-      LinearSales(0, 10, "teste"),
-      LinearSales(1, 50, "teste"),
-      LinearSales(2, 200, "teste"),
-      LinearSales(3, 150, "teste"),
-    ];
-
-    var myFakeMobileData = [
-      LinearSales(0, 15, "teste"),
-      LinearSales(1, 75, "teste"),
-      LinearSales(2, 300, "teste"),
-      LinearSales(3, 225, "teste"),
-    ];
-
-    return [
-      charts.Series<LinearSales, int>(
-        id: 'Desktop',
-        colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
-        domainFn: (LinearSales sales, _) => sales.year,
-        measureFn: (LinearSales sales, _) => sales.sales,
-        keyFn: (LinearSales textoo, _) => textoo.textoo,
-        overlaySeries: true,
-        data: myFakeDesktopData,
-      ),
-      charts.Series<LinearSales, int>(
-        id: 'Tablet',
-        colorFn: (_, __) => charts.MaterialPalette.red.shadeDefault,
-        domainFn: (LinearSales sales, _) => sales.year,
-        measureFn: (LinearSales sales, _) => sales.sales,
-        data: myFakeTabletData,
-      ),
-      charts.Series<LinearSales, int>(
-        id: 'Mobile',
-        colorFn: (_, __) => charts.MaterialPalette.green.shadeDefault,
-        domainFn: (LinearSales sales, _) => sales.year,
-        measureFn: (LinearSales sales, _) => sales.sales,
-        data: myFakeMobileData,
-      ),
-    ];
+    return Scaffold(
+        body: SfCartesianChart(
+            onLegendItemRender: (LegendRenderArgs args) => legend(args),
+            legend: Legend(
+              isVisible: true,
+              overflowMode: LegendItemOverflowMode.wrap,
+              position: LegendPosition.bottom,
+              iconWidth: 10,
+              iconHeight: 10,
+              isResponsive: true,
+            ),
+            primaryXAxis: CategoryAxis(),
+            primaryYAxis: NumericAxis(),
+            tooltipBehavior: _tooltipBehavior,
+            series: <ChartSeries<ChartData, String>>[
+          ColumnSeries<ChartData, String>(
+            dataSource: _chartData,
+            xValueMapper: (ChartData data, _) => data.x,
+            yValueMapper: (ChartData data, _) => data.y,
+            dataLabelMapper: (ChartData data, _) => data.x,
+            sortFieldValueMapper: (ChartData data, _) => data.x,
+            enableTooltip: true,
+            pointColorMapper: (ChartData data, _) => data.color,
+          )
+        ]));
   }
 }
 
-/// Sample linear data type.
-class LinearSales {
-  final int year;
-  final int sales;
-  final String textoo;
-  LinearSales(this.year, this.sales, this.textoo);
+// Controle de icones da legenda
+void legend(LegendRenderArgs args) {
+  args.legendIconType = LegendIconType.circle;
 }
 
 class PerformanceGraficLinePanel extends StatelessWidget {
@@ -94,7 +98,7 @@ class PerformanceGraficLinePanel extends StatelessWidget {
       body: Container(
           alignment: Alignment.topLeft,
           padding: const EdgeInsets.all(10),
-          child: StackedAreaLineChart.withSampleData()),
+          child: _MyHomePage()),
     );
   }
 }

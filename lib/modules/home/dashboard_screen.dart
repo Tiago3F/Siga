@@ -31,10 +31,9 @@ class _DashboardState extends State<Dashboard> {
                             flex: 4,
                             fit: FlexFit.tight,
                             child: Container(
+                              margin: EdgeInsets.only(
+                                  bottom: constraints.maxHeight - 900),
                               child: PerformanceGraficLinePanel(),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
                             ),
                           ),
                           SizedBox(
