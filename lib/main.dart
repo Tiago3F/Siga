@@ -1,14 +1,11 @@
 import 'package:animated_widgets/widgets/rotation_animated.dart';
 import 'package:animated_widgets/widgets/shake_animated_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
 import 'package:get/route_manager.dart';
 import 'package:siga/modules/home/dashboard_screen.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:siga/shared/themes/app_text_styles.dart';
-import 'shared/themes/app_colors.dart';
 
 void main() {
   setPathUrlStrategy();
@@ -57,14 +54,14 @@ class MasterPage extends StatelessWidget {
         Drawer(
           // backgroundColor: AppColors.background,
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  const Color(0xFFa12421),
-                  const Color(0xFFf91919),
+                  Color(0xFFa12421),
+                  Color(0xFFf91919),
                 ],
-                begin: const FractionalOffset(0.0, 0.0),
-                end: const FractionalOffset(1.0, 0.0),
+                begin: FractionalOffset(0.0, 0.0),
+                end: FractionalOffset(1.0, 0.0),
                 stops: [0.0, 1.0],
                 tileMode: TileMode.clamp,
               ),
@@ -77,11 +74,8 @@ class MasterPage extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        child: Image.asset('../images/logo.png',
-                            width: 30, height: 25),
-                      ),
-                      Text(
+                      Image.asset('../images/logo.png', width: 30, height: 25),
+                      const Text(
                         "SIGA",
                         style: TextStyle(
                             color: Colors.white,
@@ -91,8 +85,8 @@ class MasterPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
+                const Padding(
+                  padding: EdgeInsets.all(16.0),
                   child: Text(
                     'Menu',
                     style: TextStyle(
@@ -101,7 +95,7 @@ class MasterPage extends StatelessWidget {
                         fontSize: 12),
                   ),
                 ),
-                ExpansionTile(
+                const ExpansionTile(
                   leading:
                       Icon(Icons.edit_calendar_rounded, color: Colors.white),
                   collapsedIconColor: Colors.white,
@@ -113,14 +107,14 @@ class MasterPage extends StatelessWidget {
                       )),
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(8.0),
                       child: Text(" - Texto 1",
                           style: TextStyle(
                             color: Colors.white,
                           )),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(8.0),
                       child: Text(" - Texto 2",
                           style: TextStyle(
                             color: Colors.white,
@@ -128,16 +122,16 @@ class MasterPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                ListTile(
+                const ListTile(
                   iconColor: Colors.white,
                   textColor: Colors.white,
-                  leading: const Icon(Icons.speed_outlined),
-                  title: const Text('Dashboard Usuário'),
+                  leading: Icon(Icons.speed_outlined),
+                  title: Text('Dashboard Usuário'),
                   // onTap: () {
                   //   Get.toNamed('/edit_perfil');
                   // },
                 ),
-                ExpansionTile(
+                const ExpansionTile(
                   leading: Icon(Icons.call, color: Colors.white),
                   collapsedIconColor: Colors.white,
                   iconColor: Colors.white,
@@ -148,14 +142,14 @@ class MasterPage extends StatelessWidget {
                       )),
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(8.0),
                       child: Text(" - Texto 1",
                           style: TextStyle(
                             color: Colors.white,
                           )),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(8.0),
                       child: Text(" - Texto 2",
                           style: TextStyle(
                             color: Colors.white,
@@ -163,7 +157,7 @@ class MasterPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                ExpansionTile(
+                const ExpansionTile(
                   leading: Icon(Icons.table_rows_outlined, color: Colors.white),
                   collapsedIconColor: Colors.white,
                   iconColor: Colors.white,
@@ -174,14 +168,14 @@ class MasterPage extends StatelessWidget {
                       )),
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(8.0),
                       child: Text(" - Texto 1",
                           style: TextStyle(
                             color: Colors.white,
                           )),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(8.0),
                       child: Text(" - Texto 2",
                           style: TextStyle(
                             color: Colors.white,
@@ -195,7 +189,7 @@ class MasterPage extends StatelessWidget {
                   leading: Icon(Icons.warning_amber),
                   title: Text('Painel de Informações'),
                 ),
-                ExpansionTile(
+                const ExpansionTile(
                   leading:
                       Icon(FontAwesomeIcons.fileLines, color: Colors.white),
                   collapsedIconColor: Colors.white,
@@ -207,14 +201,14 @@ class MasterPage extends StatelessWidget {
                       )),
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(8.0),
                       child: Text(" - Texto 1",
                           style: TextStyle(
                             color: Colors.white,
                           )),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(8.0),
                       child: Text(" - Texto 2",
                           style: TextStyle(
                             color: Colors.white,
@@ -242,7 +236,8 @@ class MasterPage extends StatelessWidget {
                       color: Colors.black,
                     ),
                     onPressed: () {
-                       onPressed: () => _key.currentState!.openDrawer();
+                      onPressed:
+                      () => _key.currentState!.openDrawer();
                     },
                     tooltip: "Menu",
                   );
@@ -262,7 +257,7 @@ class MasterPage extends StatelessWidget {
                             highlightColor: Colors.transparent,
                             padding: EdgeInsets.zero,
                             constraints: BoxConstraints(),
-                            icon: Icon(FontAwesomeIcons.solidMessage,
+                            icon: const Icon(FontAwesomeIcons.solidMessage,
                                 color: Color(0xFFa8a8a8)),
                             onPressed: () {},
                           ),
@@ -273,7 +268,7 @@ class MasterPage extends StatelessWidget {
                             width: 25,
                             child: FloatingActionButton(
                               backgroundColor: Color(0xFFe1524d),
-                              child: Icon(
+                              child: const Icon(
                                 Icons.question_mark_rounded,
                                 size: 15,
                               ),
@@ -289,7 +284,7 @@ class MasterPage extends StatelessWidget {
                             highlightColor: Colors.transparent,
                             padding: EdgeInsets.zero,
                             constraints: BoxConstraints(),
-                            icon: Icon(FontAwesomeIcons.stopwatch,
+                            icon: const Icon(FontAwesomeIcons.stopwatch,
                                 color: Color(0xFF88acc3)),
                             onPressed: () {},
                           ),
@@ -298,7 +293,7 @@ class MasterPage extends StatelessWidget {
                           padding: const EdgeInsets.all(8.0),
                           child: Stack(children: [
                             ShakeAnimatedWidget(
-                              duration: Duration(milliseconds: 1500),
+                              duration: const Duration(milliseconds: 1500),
                               shakeAngle: Rotation.deg(x: 30),
                               curve: Curves.linear,
                               child: IconButton(
@@ -307,7 +302,7 @@ class MasterPage extends StatelessWidget {
                                 highlightColor: Colors.transparent,
                                 padding: EdgeInsets.zero,
                                 constraints: BoxConstraints(),
-                                icon: Icon(
+                                icon: const Icon(
                                   FontAwesomeIcons.cakeCandles,
                                   color: Color(0xFFe7797b),
                                 ),
@@ -318,16 +313,16 @@ class MasterPage extends StatelessWidget {
                               top: -0.2,
                               right: 0,
                               child: Container(
-                                padding: EdgeInsets.all(1),
-                                decoration: new BoxDecoration(
+                                padding: const EdgeInsets.all(1),
+                                decoration: BoxDecoration(
                                   color: Colors.purple,
                                   borderRadius: BorderRadius.circular(6),
                                 ),
-                                constraints: BoxConstraints(
+                                constraints: const BoxConstraints(
                                   minWidth: 13,
                                   minHeight: 0,
                                 ),
-                                child: Text(
+                                child: const Text(
                                   '3',
                                   style: TextStyle(
                                     color: Colors.white,
@@ -343,7 +338,7 @@ class MasterPage extends StatelessWidget {
                           padding: const EdgeInsets.all(8.0),
                           child: Stack(children: [
                             ShakeAnimatedWidget(
-                              duration: Duration(milliseconds: 1500),
+                              duration: const Duration(milliseconds: 1500),
                               shakeAngle: Rotation.deg(z: 20),
                               curve: Curves.linear,
                               child: IconButton(
@@ -351,8 +346,8 @@ class MasterPage extends StatelessWidget {
                                 splashColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 padding: EdgeInsets.zero,
-                                constraints: BoxConstraints(),
-                                icon: Icon(
+                                constraints: const BoxConstraints(),
+                                icon: const Icon(
                                   FontAwesomeIcons.solidBell,
                                   color: Color(0xFFffc30d),
                                 ),
@@ -363,16 +358,16 @@ class MasterPage extends StatelessWidget {
                               top: -0.2,
                               right: 0,
                               child: Container(
-                                padding: EdgeInsets.all(1),
-                                decoration: new BoxDecoration(
+                                padding: const EdgeInsets.all(1),
+                                decoration: BoxDecoration(
                                   color: Colors.purple,
                                   borderRadius: BorderRadius.circular(6),
                                 ),
-                                constraints: BoxConstraints(
+                                constraints: const BoxConstraints(
                                   minWidth: 13,
                                   minHeight: 0,
                                 ),
-                                child: Text(
+                                child: const Text(
                                   '8',
                                   style: TextStyle(
                                     color: Colors.white,
@@ -386,7 +381,7 @@ class MasterPage extends StatelessWidget {
                         ),
                         PopupMenuButton<AdminMenuItem>(
                           child: Row(
-                            children: [
+                            children: const [
                               CircleAvatar(
                                 backgroundColor: Colors.white,
                                 backgroundImage:
@@ -395,11 +390,11 @@ class MasterPage extends StatelessWidget {
                               ),
                               Text(
                                 "Tiago Moreira",
-                                style: const TextStyle(
+                                style: TextStyle(
                                     fontSize: 14, color: Colors.black),
                               ),
                               Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: Icon(
                                   FontAwesomeIcons.angleDown,
                                   color: Colors.grey,
@@ -416,7 +411,7 @@ class MasterPage extends StatelessWidget {
                                   children: [
                                     Icon(
                                       item.icon,
-                                      color: Color(0xFFe7797b),
+                                      color: const Color(0xFFe7797b),
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.only(left: 8.0),
@@ -440,8 +435,7 @@ class MasterPage extends StatelessWidget {
               ],
               backgroundColor: Colors.white,
             ),
-            body: Container(
-                child: Container(color: Colors.white, child: InnerView)),
+            body: Container(color: Colors.white, child: InnerView),
           ),
         ),
       ],

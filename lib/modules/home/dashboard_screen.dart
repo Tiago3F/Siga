@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:siga/modules/home/stacked_area_line.dart';
-import 'package:siga/modules/home/radial.dart';
+import 'package:siga/modules/home/performance_grafic_column_panel.dart';
+import 'package:siga/modules/home/performance_grafic_radial_panel.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -17,8 +17,7 @@ class _DashboardState extends State<Dashboard> {
           // Large screens (tablet on landscape mode, desktop, TV)
           if (constraints.maxWidth > 1300) {
             return Center(
-              child: Container(
-                  child: Padding(
+              child: Padding(
                 padding: const EdgeInsets.all(14.0),
                 child: Column(
                   children: <Widget>[
@@ -26,39 +25,35 @@ class _DashboardState extends State<Dashboard> {
                       flex: 1,
                       fit: FlexFit.tight,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Flexible(
                             flex: 4,
                             fit: FlexFit.tight,
-                            child: Container(
-                              margin: EdgeInsets.only(
-                                  bottom: constraints.maxHeight - 900),
-                              child: PerformanceGraficLinePanel(),
-                            ),
+                            child: PerformanceGraficColumnPanel(),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 20,
                           ),
                           Flexible(
                             flex: 3,
                             fit: FlexFit.tight,
-                            child: Container(
-                              // decoration: BoxDecoration(
-                              //     border: Border.all(color: Colors.grey)),
-                              margin: EdgeInsets.only(
-                                  bottom: constraints.maxHeight - 530),
-                              child: PerformanceGraficPanel(),
-                            ),
-                          )
+                            child: PerformanceGraficRadialPanel(),
+                          ),
                         ],
-                        mainAxisAlignment: MainAxisAlignment.center,
                       ),
                     ),
+                    Flexible(
+                      flex: 0,
+                      fit: FlexFit.tight,
+                      child: Container(
+                          height: 400,
+                          color: Colors.amber,
+                          child: PerformanceGraficColumnPanel()),
+                    ),
                   ],
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
                 ),
-              )),
+              ),
             );
           }
 
@@ -69,7 +64,7 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.all(10),
                 child: Container(
                   height: 500,
-                  child: Center(child: PerformanceGraficPanel()),
+                  child: Center(child: PerformanceGraficRadialPanel()),
                 ),
               ),
               // Padding(
