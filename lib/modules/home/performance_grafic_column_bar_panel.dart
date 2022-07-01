@@ -71,12 +71,7 @@ class _BpmnDemoState extends State<BpmnDemo> {
 
     // ignore: undefined_prefixed_name
     ui.platformViewRegistry.registerViewFactory(
-        'output',
-        (int viewId) => DivElement()
-          ..id = 'output'
-          ..text = """
-             <div id="output" class="output"> </div>
-        """);
+        'output', (int viewId) => DivElement()..id = 'output');
 
     createLineChart();
 
@@ -87,7 +82,6 @@ class _BpmnDemoState extends State<BpmnDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      backgroundColor: Colors.blue,
       body: Container(
         child: getMap(),
       ),
