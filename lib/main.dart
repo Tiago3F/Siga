@@ -1,14 +1,11 @@
 import 'package:animated_widgets/widgets/rotation_animated.dart';
 import 'package:animated_widgets/widgets/shake_animated_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
 import 'package:get/route_manager.dart';
 import 'package:siga/modules/home/dashboard_screen.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:siga/shared/themes/app_text_styles.dart';
-import 'shared/themes/app_colors.dart';
 
 void main() {
   setPathUrlStrategy();

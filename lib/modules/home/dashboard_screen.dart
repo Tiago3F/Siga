@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:siga/modules/home/stacked_area_line.dart';
-import 'package:siga/modules/home/radial.dart';
+import 'package:siga/modules/home/performance_grafic_column_bar_panel.dart';
+import 'package:siga/modules/home/performance_grafic_radial_panel.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -31,9 +31,9 @@ class _DashboardState extends State<Dashboard> {
                             flex: 4,
                             fit: FlexFit.tight,
                             child: Container(
-                              margin: EdgeInsets.only(
-                                  bottom: constraints.maxHeight - 900),
-                              child: PerformanceGraficLinePanel(),
+                              // margin: EdgeInsets.only(
+                              //     bottom: constraints.maxHeight - 900),
+                              child: BpmnDemo()
                             ),
                           ),
                           SizedBox(
@@ -47,7 +47,7 @@ class _DashboardState extends State<Dashboard> {
                               //     border: Border.all(color: Colors.grey)),
                               margin: EdgeInsets.only(
                                   bottom: constraints.maxHeight - 530),
-                              child: PerformanceGraficPanel(),
+                              child: PerformanceGraficRadialPanel(),
                             ),
                           )
                         ],
@@ -69,7 +69,7 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.all(10),
                 child: Container(
                   height: 500,
-                  child: Center(child: PerformanceGraficPanel()),
+                  child: Center(child: PerformanceGraficRadialPanel()),
                 ),
               ),
               // Padding(

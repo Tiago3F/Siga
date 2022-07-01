@@ -196,7 +196,7 @@ class _StackedAreaCustomColorLineChartState
   }
 }
 
-class PerformanceGraficPanel extends StatelessWidget {
+class PerformanceGraficRadialPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
