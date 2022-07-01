@@ -17,8 +17,7 @@ class _DashboardState extends State<Dashboard> {
           // Large screens (tablet on landscape mode, desktop, TV)
           if (constraints.maxWidth > 1300) {
             return Center(
-              child: Container(
-                  child: Padding(
+              child: Padding(
                 padding: const EdgeInsets.all(14.0),
                 child: Column(
                   children: <Widget>[
@@ -26,6 +25,7 @@ class _DashboardState extends State<Dashboard> {
                       flex: 1,
                       fit: FlexFit.tight,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Flexible(
                             flex: 4,
@@ -36,7 +36,7 @@ class _DashboardState extends State<Dashboard> {
                               child: BpmnDemo()
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 20,
                           ),
                           Flexible(
@@ -51,14 +51,19 @@ class _DashboardState extends State<Dashboard> {
                             ),
                           )
                         ],
-                        mainAxisAlignment: MainAxisAlignment.center,
                       ),
                     ),
+                    // Flexible(
+                    //   flex: 0,
+                    //   fit: FlexFit.tight,
+                    //   child: Container(
+                    //       height: 400,
+                    //       color: Colors.amber,
+                    //       child: PerformanceGraficColumnPanel()),
+                    // ),
                   ],
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
                 ),
-              )),
+              ),
             );
           }
 
